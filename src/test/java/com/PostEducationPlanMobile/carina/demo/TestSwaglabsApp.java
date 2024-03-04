@@ -2,6 +2,7 @@ package com.PostEducationPlanMobile.carina.demo;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.*;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -13,6 +14,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
 
 
     @Test(description = "[TC002]-testAddProductToCart")
+    @TestCaseKey("LBARR-1")
     @MethodOwner(owner = "barrreraGerman")
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testValidLogin() {
@@ -23,6 +25,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     }
 
     @Test(description = "[TC003]-testAddProductToCart")
+    @TestCaseKey("LBARR-2")
     @MethodOwner(owner = "barrreraGerman")
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testInvalidLogin() {
@@ -35,6 +38,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     }
 
     @Test(description = "[TC004]-testAddProductToCart")
+    @TestCaseKey("LBARR-3")
     @MethodOwner(owner = "barrreraGerman")
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testAddProductToCart() {
@@ -55,6 +59,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     }
 
     @Test(description = "[TC005]-testAddProductToCart")
+    @TestCaseKey("LBARR-4")
     @MethodOwner(owner = "barrreraGerman")
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testRemoveProductFromCart() {
