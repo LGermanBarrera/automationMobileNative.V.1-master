@@ -29,11 +29,6 @@ public class CartPage extends CartPageBase {
     }
 
     @Override
-    public HomePageBase clickOnGoShopping() {
-        return null;
-    }
-
-    @Override
     public HomePageBase clickContinueShopping() {
         continueShoppingBtn.click();
         return initPage(getDriver(), HomePageBase.class);

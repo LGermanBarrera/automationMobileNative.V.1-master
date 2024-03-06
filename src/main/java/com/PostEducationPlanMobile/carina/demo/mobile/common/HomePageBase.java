@@ -1,7 +1,5 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.common;
 
-import com.PostEducationPlanMobile.carina.demo.mobile.android.component.AndroidHeader;
-import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.iOSHeader;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +14,7 @@ public abstract class HomePageBase extends AbstractPage {
     public abstract boolean isPageOpened();
 
     public abstract HeaderBase getHeader();
+    public abstract ProductHeaderBase getProductHeader();
 
     public abstract ProductPageBase clickOnProduct(int index);
 

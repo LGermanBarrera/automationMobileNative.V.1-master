@@ -10,41 +10,29 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class AndroidHeader extends HeaderBase {
+public class TopHeader extends HeaderBase {
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/sortIV")
     private ExtendedWebElement sortBtn;
-
-    @FindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Menu\"]/android.view.ViewGroup")
     private ExtendedWebElement menuBtn;
-
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.TextView")
     private ExtendedWebElement cartItemCount;
-
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.ImageView")
     private ExtendedWebElement cartIcon;
-
-    public AndroidHeader(WebDriver driver, SearchContext searchContext) {
+    public TopHeader(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
-
     @Override
     public CartPageBase clickCartBtn(){
         cartIcon.click();
         return new CartPage(getDriver());
     }
-
     @Override
     public MenuPageBase clickOnMenuBurgerBtn() {
             menuBtn.click();
             return new MenuPage(getDriver());
     }
-
-    public MenuPageBase clickMenuBurgerBtn(){
-        menuBtn.click();
-        return new MenuPage(getDriver());
-    }
-
     @Override
     public String getCartItems() {
         return cartItemCount.getAttribute("text");

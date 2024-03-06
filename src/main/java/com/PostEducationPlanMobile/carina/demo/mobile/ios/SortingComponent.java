@@ -1,12 +1,12 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.ios;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.HomePageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.SortingPageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.SortingComponentBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.WebDriver;
 
-public class SortingPage extends SortingPageBase {
+public class SortingComponent extends SortingComponentBase {
 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Name - Ascending\"`]")
     private ExtendedWebElement nameAscendingBtn;
@@ -21,7 +21,7 @@ public class SortingPage extends SortingPageBase {
     private ExtendedWebElement priceDescendingBtn;
 
 
-    public SortingPage(WebDriver driver) {
+    public SortingComponent(WebDriver driver) {
         super(driver);
     }
 

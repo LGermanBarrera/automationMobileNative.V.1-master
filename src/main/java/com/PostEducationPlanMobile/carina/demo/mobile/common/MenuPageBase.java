@@ -8,8 +8,8 @@ public abstract class MenuPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract HomePageBase clickOnCatalogue();
+    public abstract HomePageBase clickOnAllItems();
 
-
+    public abstract LoginPageBase clickOnLogout();
 
 }
