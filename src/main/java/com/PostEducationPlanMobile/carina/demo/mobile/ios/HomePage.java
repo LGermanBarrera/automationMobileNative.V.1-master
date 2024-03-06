@@ -1,7 +1,10 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.ios;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.*;
-import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.TopHeader;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.component.HomeHeaderBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.component.TopHeaderBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.HomePageHeader;
+import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.TopMainHeader;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
@@ -23,7 +26,9 @@ public class HomePage extends HomePageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"PRODUCTS\"`]")
     private ExtendedWebElement productTitle;
     @FindBy(xpath = "//XCUIElementTypeOther[@name=\"headerContainer\"]")
-    private TopHeader header;
+    private TopMainHeader header;
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"PRODUCTS\"`][2]")
+    private HomePageHeader homeHeader;
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"\uDB81\uDF41\"`]/XCUIElementTypeOther/XCUIElementTypeImage")
     private ExtendedWebElement productList;
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"+\"`]")
@@ -39,13 +44,13 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public HeaderBase getHeader() {
+    public TopHeaderBase getTopMainHeader() {
         return header;
     }
 
     @Override
-    public ProductHeaderBase getProductHeader() {
-        return null;
+    public HomeHeaderBase getHomeHeader() {
+        return homeHeader;
     }
 
     @Override
@@ -93,7 +98,6 @@ public class HomePage extends HomePageBase {
 
     @Override
     public int getCartValue(String value) {
-        int intValue = Integer.parseInt(getHeader().getCartItems());
-        return intValue;
+     return     Integer.parseInt(getTopMainHeader().getCartItems());
     }
 }

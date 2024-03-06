@@ -1,21 +1,26 @@
-package com.PostEducationPlanMobile.carina.demo.mobile.android.component;
+package com.PostEducationPlanMobile.carina.demo.mobile.ios.component;
 
-import com.PostEducationPlanMobile.carina.demo.mobile.android.SortingComponent;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.component.HomeHeaderBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.SortingComponentBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.component.HomeHeaderBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.ios.SortingComponent;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class HomePageHeader extends HomeHeaderBase {
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Modal Selector Button\"]/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Modal Selector Button\"`]")
     private ExtendedWebElement sortBtn;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Toggle\"]/android.widget.ImageView")
-    private ExtendedWebElement toggleBtn;
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Toggle\"`]")
+    private ExtendedWebElement toggle;
     public HomePageHeader(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
+
     @Override
     public SortingComponentBase clickOnSortBtn() {
         sortBtn.click();
@@ -23,6 +28,7 @@ public class HomePageHeader extends HomeHeaderBase {
     }
     @Override
     public void clickOnToggleBtn() {
-        toggleBtn.click();
+        toggle.click();
     }
+
 }

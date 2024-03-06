@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 
 public class SortingComponent extends SortingComponentBase {
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Name - Ascending\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"Name (Z to A)\"`]")
     private ExtendedWebElement nameAscendingBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Name - Descending\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"Name (A to Z)\"`]")
     private ExtendedWebElement nameDescendingBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Price - Ascending\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"Price (low to high)\"`]")
     private ExtendedWebElement priceAscendingBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Price - Descending\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"Price (high to low)\"`]")
     private ExtendedWebElement priceDescendingBtn;
 
 

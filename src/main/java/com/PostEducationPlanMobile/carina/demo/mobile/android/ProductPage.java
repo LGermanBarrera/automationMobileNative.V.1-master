@@ -15,16 +15,13 @@ public class ProductPage extends ProductPageBase {
     private ExtendedWebElement removeBtn;
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"]")
     private ExtendedWebElement addToCartBtn;
-
     public ProductPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     public void addToCartButton() {
         addToCartBtn.click();
     }
-
     @Override
     public void removeButton() {
         removeBtn.click();

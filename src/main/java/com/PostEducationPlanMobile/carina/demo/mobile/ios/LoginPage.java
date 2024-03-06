@@ -35,12 +35,10 @@ public class LoginPage extends LoginPageBase {
     clickLoginButton();
     return initPage(getDriver(), HomePageBase.class);
     }
-
     @Override
     public LoginPageBase invalidLogin(String username, String password) {
         return null;
     }
-
     @Override
     public boolean isErrorMessagePresent() {
         return false;

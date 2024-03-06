@@ -7,9 +7,7 @@ public abstract class MenuPageBase extends AbstractPage {
     public MenuPageBase(WebDriver driver) {
         super(driver);
     }
-
     public abstract HomePageBase clickOnAllItems();
-
     public abstract LoginPageBase clickOnLogout();
 
 }
