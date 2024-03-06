@@ -15,6 +15,9 @@ public class MenuPage extends MenuPageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"Catalog-tab-item\"`]")
     private ExtendedWebElement catalogBtn;
 
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"LOGOUT\"`]")
+    private ExtendedWebElement logoutBtn;
+
     public MenuPage(WebDriver driver) {
         super(driver);
     }
@@ -27,7 +30,8 @@ public class MenuPage extends MenuPageBase {
 
     @Override
     public LoginPageBase clickOnLogout() {
-        return null;
+       logoutBtn.click();
+        return initPage(getDriver(), LoginPageBase.class);
     }
 
 

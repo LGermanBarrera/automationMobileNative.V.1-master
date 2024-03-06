@@ -16,6 +16,9 @@ public class CartPage extends CartPageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Go Shopping\"`]")
     private ExtendedWebElement goShoppingBtn;
 
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"REMOVE\"`][2]")
+    private ExtendedWebElement removeBtn;
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
@@ -33,6 +36,7 @@ public class CartPage extends CartPageBase {
 
     @Override
     public CartPageBase clickRemoveButton() {
-        return null;
+       removeBtn.click();
+       return this;
     }
 }

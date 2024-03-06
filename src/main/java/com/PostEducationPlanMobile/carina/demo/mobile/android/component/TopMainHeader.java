@@ -3,14 +3,14 @@ package com.PostEducationPlanMobile.carina.demo.mobile.android.component;
 import com.PostEducationPlanMobile.carina.demo.mobile.android.CartPage;
 import com.PostEducationPlanMobile.carina.demo.mobile.android.MenuPage;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.CartPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.HeaderBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.component.TopHeaderBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.MenuPageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class TopHeader extends HeaderBase {
+public class TopMainHeader extends TopHeaderBase {
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/sortIV")
     private ExtendedWebElement sortBtn;
@@ -20,7 +20,7 @@ public class TopHeader extends HeaderBase {
     private ExtendedWebElement cartItemCount;
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.ImageView")
     private ExtendedWebElement cartIcon;
-    public TopHeader(WebDriver driver, SearchContext searchContext) {
+    public TopMainHeader(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
     @Override

@@ -15,16 +15,13 @@ public class LoginPage extends LoginPageBase {
     private ExtendedWebElement username;
     @FindBy(xpath = "//android.widget.EditText[@content-desc=\"test-Password\"]")
     private ExtendedWebElement password;
-
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-LOGIN\"]")
     private ExtendedWebElement loginBtn;
-
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Error message\"]/android.widget.TextView")
     private ExtendedWebElement errorMessage;
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     public HomePageBase clickLoginButton() {
         return initPage(getDriver(), HomePageBase.class);
@@ -44,7 +41,6 @@ public class LoginPage extends LoginPageBase {
       loginBtn.click();
         return initPage(getDriver(), LoginPageBase.class);
     }
-
     @Override
     public boolean isErrorMessagePresent() {
         return errorMessage.isElementPresent();

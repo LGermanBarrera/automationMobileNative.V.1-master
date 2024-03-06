@@ -10,32 +10,28 @@ import org.openqa.selenium.WebDriver;
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = ProductPageBase.class)
 public class ProductPage extends ProductPageBase {
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Add To Cart\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"ADD TO CART\"`][2]")
     private ExtendedWebElement addBtn;
-
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"SubtractMinus Icons\"`]")
-    private ExtendedWebElement subtractBtn;
-
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"AddPlus Icons\"`]")
-    private ExtendedWebElement plusBtn;
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"BACK TO PRODUCTS\"`][1]")
+    private ExtendedWebElement backToProductBtn;
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"REMOVE\"`][2]")
+    private ExtendedWebElement removeBtn;
 
     public ProductPage(WebDriver driver) {
         super(driver);
     }
 
-
     @Override
     public void addToCartButton() {
-
+        addBtn.click();
     }
-
     @Override
     public void removeButton() {
-
+        removeBtn.click();
     }
-
     @Override
     public HomePageBase backToProductsButton() {
-        return null;
+        backToProductBtn.click();
+        return initPage(getDriver(), HomePageBase.class);
     }
 }

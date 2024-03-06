@@ -1,6 +1,9 @@
 package com.PostEducationPlanMobile.carina.demo;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.*;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.component.HomeHeaderBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.component.TopHeaderBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.TopMainHeader;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.agent.core.annotation.TestLabel;
@@ -46,8 +49,8 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
         HomePageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
-        HeaderBase header = homePage.getHeader();
-        Assert.assertTrue(header.isUIObjectPresent(), "TopHeader menu was not found");
+        TopHeaderBase header = homePage.getTopMainHeader();
+        Assert.assertTrue(header.isUIObjectPresent(), "TopMainHeader menu was not found");
 
         //First I click on a product because a value can't be reached.
         homePage.clickOnToggleBtn().clickOnAddBtn(0);
@@ -67,8 +70,8 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
         HomePageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
-        HeaderBase header = homePage.getHeader();
-        Assert.assertTrue(header.isUIObjectPresent(), "TopHeader menu was not found");
+        TopHeaderBase header = homePage.getTopMainHeader();
+        Assert.assertTrue(header.isUIObjectPresent(), "TopMainHeader menu was not found");
 
         CartPageBase cart = header.clickCartBtn();
         //here we check the cart is empty
@@ -83,18 +86,6 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
         //here we check the cart is empty again
         Assert.assertFalse(cart.isProductPresent(), "The cart is not empty");
 
-
-    }
-
-    @Test
-    public void testProductComponentFunctionality() {
-        //this test is just aimed to test whether the component work or not
-        LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
-        ProductHeaderBase prHeader = homePage.getProductHeader();
-        prHeader.clickOnSortBtn().clickNameDescending();
-        MenuPageBase menu = homePage.getHeader().clickOnMenuBurgerBtn();
-        menu.clickOnLogout();
 
     }
 

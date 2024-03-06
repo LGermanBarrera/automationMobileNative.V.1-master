@@ -10,23 +10,18 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE,parentClass = MenuPageBase.class)
 public class MenuPage extends MenuPageBase {
-
     @FindBy(xpath = "//android.widget.TextView[2]")
     private ExtendedWebElement catalogBtn;
-
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-LOGOUT\"]")
     private ExtendedWebElement logoutBtn;
-
     public MenuPage(WebDriver driver) {
         super(driver);
     }
-
     @Override
     public HomePageBase clickOnAllItems() {
        catalogBtn.click();
         return initPage(getDriver(), HomePageBase.class);
     }
-
     @Override
     public LoginPageBase clickOnLogout() {
         logoutBtn.click();
