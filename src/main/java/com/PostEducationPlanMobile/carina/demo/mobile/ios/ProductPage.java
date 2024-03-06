@@ -1,5 +1,6 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.ios;
 
+import com.PostEducationPlanMobile.carina.demo.mobile.common.HomePageBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.ProductPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -18,23 +19,23 @@ public class ProductPage extends ProductPageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"AddPlus Icons\"`]")
     private ExtendedWebElement plusBtn;
 
-
     public ProductPage(WebDriver driver) {
         super(driver);
     }
 
+
     @Override
-    public void addToCartBtn() {
-      addBtn.click();
+    public void addToCartButton() {
+
     }
 
     @Override
-    public void minusBtnClick() {
-        subtractBtn.click();
+    public void removeButton() {
+
     }
 
     @Override
-    public void plusBtnClick() {
-        plusBtn.click();
+    public HomePageBase backToProductsButton() {
+        return null;
     }
 }

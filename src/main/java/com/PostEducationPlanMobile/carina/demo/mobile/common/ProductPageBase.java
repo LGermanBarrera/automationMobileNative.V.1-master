@@ -8,9 +8,9 @@ public abstract class ProductPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void addToCartBtn();
-    public abstract void minusBtnClick();
-    public abstract void plusBtnClick();
+    public abstract void addToCartButton();
+    public abstract void removeButton();
+    public abstract HomePageBase backToProductsButton();
 
 
 

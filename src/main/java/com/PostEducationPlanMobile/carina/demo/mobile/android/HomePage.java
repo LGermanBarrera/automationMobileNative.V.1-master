@@ -1,11 +1,8 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.android;
 
-import com.PostEducationPlanMobile.carina.demo.mobile.android.component.AndroidHeader;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.HomePageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.LoginPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.MenuPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.ProductPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.iOSHeader;
+import com.PostEducationPlanMobile.carina.demo.mobile.android.component.TopHeader;
+import com.PostEducationPlanMobile.carina.demo.mobile.android.component.HomePageHeader;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
@@ -15,21 +12,18 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
-public class AndroidHomePage extends HomePageBase {
+public class HomePage extends HomePageBase {
 
     @FindBy(xpath = "//android.widget.ImageView")
     private ExtendedWebElement logo;
-    //(//android.widget.TextView[@content-desc="test-Item title"])[1]
     @FindBy(xpath = "//android.widget.TextView[@text(),'%s']")
     private ExtendedWebElement product;
-//    @FindBy(xpath = "//android.widget.TextView[@text()='%s']")
-//    private ExtendedWebElement product;
 
     @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Menu\"]")
     private ExtendedWebElement menuBtn;
 
-    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]")
-    private AndroidHeader androidHeader;
+    @FindBy(xpath = "//android.view.ViewGroup[1]")
+    private TopHeader topHeader;
 
     @FindBy(xpath = "//android.view.ViewGroup/android.widget.TextView")
     private ExtendedWebElement productTitle;
@@ -43,7 +37,9 @@ public class AndroidHomePage extends HomePageBase {
     @FindBy(xpath = "(//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"])")
     private ExtendedWebElement addButtons;
 
-    public AndroidHomePage(WebDriver driver) {
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart drop zone\"]")
+    private HomePageHeader homePageHeader;
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -53,8 +49,13 @@ public class AndroidHomePage extends HomePageBase {
     }
 
     @Override
-    public AndroidHeader getHeader() {
-        return androidHeader;
+    public TopHeader getHeader() {
+        return topHeader;
+    }
+
+    @Override
+    public ProductHeaderBase getProductHeader() {
+        return homePageHeader;
     }
 
     @Override
@@ -100,8 +101,7 @@ public class AndroidHomePage extends HomePageBase {
 
     @Override
     public int getCartValue(String value) {
-       int intValue = Integer.parseInt(getHeader().getCartItems());
-        return intValue;
+        return Integer.parseInt(getHeader().getCartItems());
     }
 
 

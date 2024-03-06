@@ -20,11 +20,15 @@ public class MenuPage extends MenuPageBase {
     }
 
     @Override
-    public HomePageBase clickOnCatalogue() {
+    public HomePageBase clickOnAllItems() {
         catalogBtn.click();
         return initPage(getDriver(), HomePageBase.class);
     }
 
+    @Override
+    public LoginPageBase clickOnLogout() {
+        return null;
+    }
 
 
 }
