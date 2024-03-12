@@ -1,7 +1,7 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.ios;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.CartPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.HomePageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.ProductListPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE,parentClass = CartPage.class)
 public class CartPage extends CartPageBase {
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"Sauce Labs Backpack\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == 'Sauce Labs Backpack'`]")
     private ExtendedWebElement product;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Go Shopping\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == 'Go Shopping'`]")
     private ExtendedWebElement goShoppingBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"REMOVE\"`][2]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'REMOVE'`][2]")
     private ExtendedWebElement removeBtn;
 
     public CartPage(WebDriver driver) {
@@ -29,13 +29,13 @@ public class CartPage extends CartPageBase {
     }
 
     @Override
-    public HomePageBase clickContinueShopping() {
+    public ProductListPageBase clickContinueShopping() {
         goShoppingBtn.click();
-        return initPage(getDriver(), HomePageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
 
     @Override
-    public CartPageBase clickRemoveButton() {
+    public CartPageBase removeProductFromCart() {
        removeBtn.click();
        return this;
     }

@@ -14,27 +14,27 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = HomePageBase.class)
-public class HomePage extends HomePageBase {
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = ProductListPageBase.class)
+public class ProductListPage extends ProductListPageBase {
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"Username Password LOGIN\"`]/XCUIElementTypeOther[1]/XCUIElementTypeImage")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'Username Password LOGIN'`]/XCUIElementTypeOther[1]/XCUIElementTypeImage")
     private ExtendedWebElement logoIcon;
     @FindBy(xpath = "//XCUIElementTypeOther[2]/XCUIElementTypeOther[12]")
     private ExtendedWebElement loginBtn;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Toggle\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'test-Toggle'`]")
     private ExtendedWebElement toggle;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == \"PRODUCTS\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeStaticText[`label == 'PRODUCTS'`]")
     private ExtendedWebElement productTitle;
-    @FindBy(xpath = "//XCUIElementTypeOther[@name=\"headerContainer\"]")
+    @FindBy(xpath = "//XCUIElementTypeOther[@name='headerContainer']")
     private TopMainHeader header;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"PRODUCTS\"`][2]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'PRODUCTS'`][2]")
     private HomePageHeader homeHeader;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"\uDB81\uDF41\"`]/XCUIElementTypeOther/XCUIElementTypeImage")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == '\uDB81\uDF41'`]/XCUIElementTypeOther/XCUIElementTypeImage")
     private ExtendedWebElement productList;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"+\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == '+'`]")
     private ExtendedWebElement addButton;
 
-    public HomePage(WebDriver driver) {
+    public ProductListPage(WebDriver driver) {
         super(driver);
     }
 
@@ -54,10 +54,10 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public ProductPageBase clickOnProduct(int index) {
+    public ProductDetailPageBase clickOnProduct(int index) {
         List<WebElement> list = getProductList();
         list.get(index).click();
-        return initPage(getDriver(), ProductPageBase.class);
+        return initPage(getDriver(), ProductDetailPageBase.class);
     }
 
     @Override
@@ -78,20 +78,20 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public HomePageBase clickOnToggleBtn() {
+    public ProductListPageBase clickOnToggleBtn() {
         toggle.click();
         return this;
     }
 
     @Override
-    public List<WebElement> getAddBtnList() {
+    public List<WebElement> getAllProducts() {
         return getDriver().findElements(addButton.getBy());
 
     }
 
     @Override
-    public HomePageBase clickOnAddBtn(int index) {
-        List<WebElement> list = getAddBtnList();
+    public ProductListPageBase clickOnAddBtn(int index) {
+        List<WebElement> list = getAllProducts();
         list.get(index).click();
         return this;
     }

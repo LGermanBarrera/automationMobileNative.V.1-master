@@ -8,20 +8,20 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public abstract class HomePageBase extends AbstractPage {
-    public HomePageBase(WebDriver driver) {
+public abstract class ProductListPageBase extends AbstractPage {
+    public ProductListPageBase(WebDriver driver) {
         super(driver);
     }
 
     public abstract boolean isPageOpened();
     public abstract TopHeaderBase getTopMainHeader();
     public abstract HomeHeaderBase getHomeHeader();
-    public abstract ProductPageBase clickOnProduct(int index);
+    public abstract ProductDetailPageBase clickOnProduct(int index);
     public abstract LoginPageBase clickLogin();
     public abstract String isProductTitlePresent();
     public abstract List<WebElement> getProductList();
-    public abstract HomePageBase clickOnToggleBtn();
-    public abstract List<WebElement> getAddBtnList();
-    public abstract HomePageBase clickOnAddBtn(int index);
+    public abstract ProductListPageBase clickOnToggleBtn();
+    public abstract List<WebElement> getAllProducts();
+    public abstract ProductListPageBase clickOnAddBtn(int index);
     public abstract int getCartValue(String value);
 }

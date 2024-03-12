@@ -1,6 +1,6 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.android;
 
-import com.PostEducationPlanMobile.carina.demo.mobile.common.HomePageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.ProductListPageBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.SortingComponentBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -22,23 +22,23 @@ public class SortingComponent extends SortingComponentBase {
     }
 
     @Override
-    public HomePageBase clickNameAscending() {
+    public ProductListPageBase clickNameAscending() {
       ascendingNameBtn.click();
-        return initPage(getDriver(), HomePageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
     @Override
-    public HomePageBase clickNameDescending() {
+    public ProductListPageBase clickNameDescending() {
         descendingNameBtn.click();
-        return initPage(getDriver(), HomePageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
     @Override
-    public HomePageBase clickPriceAscending() {
+    public ProductListPageBase clickPriceAscending() {
         ascendingPriceBtn.click();
-        return initPage(getDriver(), HomePageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
     @Override
-    public HomePageBase clickPriceDescending() {
+    public ProductListPageBase clickPriceDescending() {
         descendingPriceBtn.click();
-        return initPage(getDriver(), HomePageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
 }

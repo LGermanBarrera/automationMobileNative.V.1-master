@@ -7,8 +7,8 @@ public abstract class SortingComponentBase extends AbstractPage {
     public SortingComponentBase(WebDriver driver) {
         super(driver);
     }
-    public abstract HomePageBase clickNameAscending();
-    public abstract HomePageBase clickNameDescending();
-    public abstract HomePageBase clickPriceAscending();
-    public abstract HomePageBase clickPriceDescending();
+    public abstract ProductListPageBase clickNameAscending();
+    public abstract ProductListPageBase clickNameDescending();
+    public abstract ProductListPageBase clickPriceAscending();
+    public abstract ProductListPageBase clickPriceDescending();
 }

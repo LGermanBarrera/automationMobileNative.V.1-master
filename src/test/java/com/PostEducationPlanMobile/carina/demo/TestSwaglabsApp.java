@@ -1,9 +1,7 @@
 package com.PostEducationPlanMobile.carina.demo;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.*;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.component.HomeHeaderBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.component.TopHeaderBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.ios.component.TopMainHeader;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.agent.core.annotation.TestCaseKey;
 import com.zebrunner.agent.core.annotation.TestLabel;
@@ -22,7 +20,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testValidLogin() {
         LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
+        ProductListPageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
     }
@@ -46,7 +44,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testAddProductToCart() {
         LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
+        ProductListPageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
         TopHeaderBase header = homePage.getTopMainHeader();
@@ -67,25 +65,23 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testRemoveProductFromCart() {
         LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
+        ProductListPageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
         TopHeaderBase header = homePage.getTopMainHeader();
         Assert.assertTrue(header.isUIObjectPresent(), "TopMainHeader menu was not found");
 
         CartPageBase cart = header.clickCartBtn();
-        //here we check the cart is empty
+
         Assert.assertFalse(cart.isProductPresent(), "The cart is not empty");
         cart.clickContinueShopping();
         homePage.clickOnAddBtn(0);
         header.clickCartBtn();
-        //Now we check is effectively a product was added to the cart
+
         Assert.assertTrue(cart.isProductPresent(), "it was not added a product to cart");
-        cart.clickRemoveButton();
+        cart.removeProductFromCart();
 
-        //here we check the cart is empty again
         Assert.assertFalse(cart.isProductPresent(), "The cart is not empty");
-
 
     }
 
