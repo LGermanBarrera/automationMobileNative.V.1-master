@@ -1,10 +1,10 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.android.component;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.android.CartPage;
-import com.PostEducationPlanMobile.carina.demo.mobile.android.MenuPage;
+import com.PostEducationPlanMobile.carina.demo.mobile.android.BurgerMenuPage;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.CartPageBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.component.TopHeaderBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.MenuPageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.BurgerMenuPageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +14,11 @@ public class TopMainHeader extends TopHeaderBase {
 
     @FindBy(id = "com.saucelabs.mydemoapp.android:id/sortIV")
     private ExtendedWebElement sortBtn;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Menu\"]/android.view.ViewGroup")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Menu']/android.view.ViewGroup")
     private ExtendedWebElement menuBtn;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.TextView")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Cart']/android.view.ViewGroup/android.widget.TextView")
     private ExtendedWebElement cartItemCount;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart\"]/android.view.ViewGroup/android.widget.ImageView")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Cart']/android.view.ViewGroup/android.widget.ImageView")
     private ExtendedWebElement cartIcon;
     public TopMainHeader(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
@@ -29,9 +29,9 @@ public class TopMainHeader extends TopHeaderBase {
         return new CartPage(getDriver());
     }
     @Override
-    public MenuPageBase clickOnMenuBurgerBtn() {
+    public BurgerMenuPageBase clickOnMenuBurgerBtn() {
             menuBtn.click();
-            return new MenuPage(getDriver());
+            return new BurgerMenuPage(getDriver());
     }
     @Override
     public String getCartItems() {

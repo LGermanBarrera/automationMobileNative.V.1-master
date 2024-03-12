@@ -12,28 +12,28 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
-public class HomePage extends HomePageBase {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ProductListPageBase.class)
+public class ProductListPage extends ProductListPageBase {
 
     @FindBy(xpath = "//android.widget.ImageView")
     private ExtendedWebElement logo;
     @FindBy(xpath = "//android.widget.TextView[@text(),'%s']")
     private ExtendedWebElement product;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Menu\"]")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Menu']")
     private ExtendedWebElement menuBtn;
     @FindBy(xpath = "//android.view.ViewGroup[1]")
     private TopMainHeader topHeader;
     @FindBy(xpath = "//android.view.ViewGroup/android.widget.TextView")
     private ExtendedWebElement productTitle;
-    @FindBy(xpath = "(//android.widget.TextView[@content-desc=\"test-Item title\"])")
+    @FindBy(xpath = "(//android.widget.TextView[@content-desc='test-Item title'])")
     private ExtendedWebElement productList;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Toggle\"]/android.widget.ImageView")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Toggle']/android.widget.ImageView")
     private ExtendedWebElement toggleBtn;
-    @FindBy(xpath = "(//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"])")
+    @FindBy(xpath = "(//android.view.ViewGroup[@content-desc='test-ADD TO CART'])")
     private ExtendedWebElement addButtons;
-    @FindBy(xpath = "//android.view.ViewGroup[@content-desc=\"test-Cart drop zone\"]")
+    @FindBy(xpath = "//android.view.ViewGroup[@content-desc='test-Cart drop zone']")
     private HomePageHeader homePageHeader;
-    public HomePage(WebDriver driver) {
+    public ProductListPage(WebDriver driver) {
         super(driver);
     }
     @Override
@@ -49,10 +49,10 @@ public class HomePage extends HomePageBase {
         return homePageHeader;
     }
     @Override
-    public ProductPageBase clickOnProduct(int index) {
+    public ProductDetailPageBase clickOnProduct(int index) {
         List<WebElement> element = getProductList();
         element.get(index).click();
-        return initPage(getDriver(), ProductPageBase.class);
+        return initPage(getDriver(), ProductDetailPageBase.class);
     }
     @Override
     public LoginPageBase clickLogin() {
@@ -68,17 +68,17 @@ public class HomePage extends HomePageBase {
         return list;
     }
     @Override
-    public HomePageBase clickOnToggleBtn() {
+    public ProductListPageBase clickOnToggleBtn() {
         toggleBtn.click();
         return this;
     }
     @Override
-    public List<WebElement> getAddBtnList() {
+    public List<WebElement> getAllProducts() {
         return getDriver().findElements(addButtons.getBy());
     }
     @Override
-    public HomePageBase clickOnAddBtn(int index) {
-        List<WebElement> list = getAddBtnList();
+    public ProductListPageBase clickOnAddBtn(int index) {
+        List<WebElement> list = getAllProducts();
         list.get(index).click();
         return this;
     }

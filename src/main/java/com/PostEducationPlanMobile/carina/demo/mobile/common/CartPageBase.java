@@ -8,6 +8,6 @@ public abstract class CartPageBase extends AbstractPage {
         super(driver);
     }
     public abstract boolean isProductPresent();
-    public abstract HomePageBase clickContinueShopping();
-    public abstract CartPageBase clickRemoveButton();
+    public abstract ProductListPageBase clickContinueShopping();
+    public abstract CartPageBase removeProductFromCart();
 }

@@ -3,25 +3,24 @@ package com.PostEducationPlanMobile.carina.demo.mobile.ios.component;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.*;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.component.TopHeaderBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.ios.CartPage;
-import com.PostEducationPlanMobile.carina.demo.mobile.ios.MenuPage;
+import com.PostEducationPlanMobile.carina.demo.mobile.ios.BurgerMenuPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
+import org.openqa.selenium.support.FindBy;
 
 public class TopMainHeader extends TopHeaderBase {
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Cart\"`]/XCUIElementTypeOther")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'test-Cart'`]/XCUIElementTypeOther")
     private ExtendedWebElement cartItems;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Menu\"`]")
-    private ExtendedWebElement menuBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Cart\"`]")
+    @FindBy(xpath = "//XCUIElementTypeOther[@name='test-Menu']")
+    private ExtendedWebElement hamburgerButton;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'test-Cart'`]")
     private ExtendedWebElement cartBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"PRODUCTS\"`][2]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'PRODUCTS'`][2]")
     private ExtendedWebElement homeHeaderList;
 
     public TopMainHeader(WebDriver driver, SearchContext searchContext) {
@@ -40,9 +39,9 @@ public class TopMainHeader extends TopHeaderBase {
     }
 
     @Override
-    public MenuPageBase clickOnMenuBurgerBtn() {
+    public BurgerMenuPageBase clickOnMenuBurgerBtn() {
         menuBtn.click();
-        return new MenuPage(getDriver());
+        return new BurgerMenuPage(getDriver());
     }
 
 }

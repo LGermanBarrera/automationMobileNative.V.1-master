@@ -1,31 +1,30 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.ios;
 
-import com.PostEducationPlanMobile.carina.demo.mobile.common.HomePageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.ProductListPageBase;
 import com.PostEducationPlanMobile.carina.demo.mobile.common.LoginPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.MenuPageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.BurgerMenuPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.ExtendedFindBy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = MenuPageBase.class)
-public class MenuPage extends MenuPageBase {
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = BurgerMenuPageBase.class)
+public class BurgerMenuPage extends BurgerMenuPageBase {
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == \"Catalog-tab-item\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`name == 'Catalog-tab-item'`]")
     private ExtendedWebElement catalogBtn;
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"LOGOUT\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'LOGOUT'`]")
     private ExtendedWebElement logoutBtn;
 
-    public MenuPage(WebDriver driver) {
+    public BurgerMenuPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    public HomePageBase clickOnAllItems() {
+    public ProductListPageBase clickOnAllItems() {
         catalogBtn.click();
-        return initPage(getDriver(), HomePageBase.class);
+        return initPage(getDriver(), ProductListPageBase.class);
     }
 
     @Override

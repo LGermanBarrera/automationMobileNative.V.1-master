@@ -20,7 +20,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testValidLogin() {
         LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
+        ProductListPageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
     }
@@ -44,7 +44,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testAddProductToCart() {
         LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
+        ProductListPageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
         TopHeaderBase header = homePage.getTopMainHeader();
@@ -65,7 +65,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
     @TestLabel(name = "feature", value = {"mobile", "functionality"})
     public void testRemoveProductFromCart() {
         LoginPageBase loginPageBase = initPage(getDriver(), LoginPageBase.class);
-        HomePageBase homePage = loginPageBase.login();
+        ProductListPageBase homePage = loginPageBase.login();
 
         Assert.assertTrue(homePage.isPageOpened(), "The page was not opened");
         TopHeaderBase header = homePage.getTopMainHeader();
@@ -79,7 +79,7 @@ public class TestSwaglabsApp implements IAbstractTest, ILogIn {
         header.clickCartBtn();
 
         Assert.assertTrue(cart.isProductPresent(), "it was not added a product to cart");
-        cart.clickRemoveButton();
+        cart.removeProductFromCart();
 
         Assert.assertFalse(cart.isProductPresent(), "The cart is not empty");
 

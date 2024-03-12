@@ -1,7 +1,7 @@
 package com.PostEducationPlanMobile.carina.demo.mobile.common.component;
 
 import com.PostEducationPlanMobile.carina.demo.mobile.common.CartPageBase;
-import com.PostEducationPlanMobile.carina.demo.mobile.common.MenuPageBase;
+import com.PostEducationPlanMobile.carina.demo.mobile.common.BurgerMenuPageBase;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -12,5 +12,5 @@ public abstract class TopHeaderBase extends AbstractUIObject {
     }
     public abstract String getCartItems();
     public abstract CartPageBase clickCartBtn();
-    public abstract MenuPageBase clickOnMenuBurgerBtn();
+    public abstract BurgerMenuPageBase clickOnMenuBurgerBtn();
 }

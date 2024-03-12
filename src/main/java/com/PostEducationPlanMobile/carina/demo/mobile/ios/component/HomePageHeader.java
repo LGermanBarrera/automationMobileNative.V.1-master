@@ -13,9 +13,9 @@ import java.util.List;
 
 public class HomePageHeader extends HomeHeaderBase {
 
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Modal Selector Button\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'test-Modal Selector Button'`]")
     private ExtendedWebElement sortBtn;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Toggle\"`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == 'test-Toggle'`]")
     private ExtendedWebElement toggle;
     public HomePageHeader(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
